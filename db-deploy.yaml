@@ -39,6 +39,16 @@ spec:
         envFrom:
           - configMapRef:
               name: common-env
+        volumeMounts:
+          - mountPath: /mm/config
+            name: cm-volume
+      volumes:
+        - name: cm-volume
+          configMap:
+            name: mm-config-file
+            items:
+            - key: config.json
+              path: config.json
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
