@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: "2021-09-08T12:29:54Z"
+  generation: 1
+  labels:
+    app: mettermost
+  name: mettermost
+  namespace: default
+  uid: f5e64042-031b-48be-9caa-34a6aacf6e16
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: mettermost
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mettermost
+    spec:
+      containers:
+      - image: sa2knight/mattermost:4.10.2
+        imagePullPolicy: IfNotPresent
+        name: mattermost
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
