@@ -33,6 +33,15 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        env:
+          - name: MM_USERNAME
+            value: myuser
+          - name: MM_PASSWORD
+            value: mypassword
+          - name: DB_NAME
+            value: mattermost
+          - name: DB_HOST
+            value: ""
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler

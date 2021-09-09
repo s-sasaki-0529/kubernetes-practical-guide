@@ -33,6 +33,15 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: rootpassword
+          - name: MYSQL_USER
+            value: myuser
+          - name: MYSQL_PASSWORD
+            value: mypassword
+          - name: MYSQL_DATABASE
+            value: mattermost
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
