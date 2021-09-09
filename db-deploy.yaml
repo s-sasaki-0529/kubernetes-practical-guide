@@ -33,11 +33,10 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
-        env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: rootpassword
         envFrom:
           - configMapRef:
+              name: common-env
+          - secretRef:
               name: common-env
         volumeMounts:
           - mountPath: /mm/config
