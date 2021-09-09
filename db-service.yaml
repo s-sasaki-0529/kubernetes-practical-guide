@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-09-09T01:21:01Z"
+  labels:
+    app: mattermost-db
+  name: mattermost-db
+  namespace: default
+  uid: da9d883a-e3f1-4591-8c5a-0cfc21d8ff59
+spec:
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: "3306"
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: db
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

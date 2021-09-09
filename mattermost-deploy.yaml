@@ -50,7 +50,7 @@ spec:
                 name: common-env
                 key: MYSQL_DATABASE
           - name: DB_HOST
-            value: ""
+            value: mattermost-db
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
