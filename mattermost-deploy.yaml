@@ -4,8 +4,8 @@ metadata:
   creationTimestamp: "2021-09-08T12:29:54Z"
   generation: 1
   labels:
-    app: mettermost
-  name: mettermost
+    app: mattermost
+  name: mattermost
   namespace: default
   uid: f5e64042-031b-48be-9caa-34a6aacf6e16
 spec:
@@ -14,7 +14,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: mettermost
+      app: mattermost
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -24,7 +24,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: mettermost
+        app: mattermost
     spec:
       containers:
       - image: sa2knight/mattermost:4.10.2
