@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  MYSQL_DATABASE: mattermost
+  MYSQL_PASSWORD: mypassword
+  MYSQL_USER: myuser
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-09-09T00:07:20Z"
+  name: common-env
+  namespace: default
+  uid: a9ca5aac-4450-4a88-9c39-2ab793676f5f
