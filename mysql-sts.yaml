@@ -23,3 +23,14 @@ spec:
             name: common-env
         - secretRef:
             name: common-env
+        volumeMounts:
+          - name: data
+            mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
