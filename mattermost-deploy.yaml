@@ -7,7 +7,7 @@ metadata:
     app: mattermost
   name: mattermost
   namespace: default
-  uid: f5e64042-031b-48be-9caa-34a6aacf6e16
+  uid: ""
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
