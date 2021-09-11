@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  serviceName: mattermost 
+  updateStrategy:
+    type: RollingUpdate
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec: 
+      containers:
+      - name: mysql
+        image: k8spracticalguide/mysql:5.7.22
+        envFrom:
+        - configMapRef:
+            name: common-env
+        - secretRef:
+            name: common-env
