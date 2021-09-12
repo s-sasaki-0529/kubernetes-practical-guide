@@ -19,6 +19,6 @@ data:
       echo "server-id=$((100+serverid))" >> ${CONF}
     fi
     # Copy init-slave.sh from scripts to initdb directory
-    cp /mnt/scripts/init-slave.sh /mnt/initdb/
-    chmod +x /mnt/initdb/init-slave.sh
+    # cp /mnt/scripts/init-slave.sh /mnt/initdb/
+    # chmod +x /mnt/initdb/init-slave.sh
     exit 0

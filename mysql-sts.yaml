@@ -15,6 +15,15 @@ spec:
       labels:
         app: mysql
     spec: 
+      initContainers:
+        - name: init-mysql
+          image: k8spracticalguide/mysql:5.7.22
+          command: ["bash", "/mnt/scripts/setup.sh"]
+          volumeMounts:
+            - name: confd
+              mountPath: /mnt/conf.d
+            - name: scripts
+              mountPath: /mnt/scripts
       containers:
       - name: mysql
         image: k8spracticalguide/mysql:5.7.22
@@ -26,6 +35,14 @@ spec:
         volumeMounts:
           - name: data
             mountPath: /var/lib/mysql
+          - name: confd
+            mountPath: /etc/mysql/conf.d
+      volumes:
+        - name: confd
+          emptyDir: {}
+        - name: scripts
+          configMap:
+            name: mysql-scripts
   volumeClaimTemplates:
     - metadata:
         name: data
