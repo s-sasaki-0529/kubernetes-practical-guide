@@ -37,12 +37,17 @@ spec:
             mountPath: /var/lib/mysql
           - name: confd
             mountPath: /etc/mysql/conf.d
+          - name: backup
+            mountPath: /mnt/backup
       volumes:
         - name: confd
           emptyDir: {}
         - name: scripts
           configMap:
             name: mysql-scripts
+        - name: backup
+          persistentVolumeClaim:
+            claimName: backup-mysql
   volumeClaimTemplates:
     - metadata:
         name: data
