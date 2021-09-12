@@ -50,7 +50,15 @@ spec:
                 name: common-env
                 key: MYSQL_DATABASE
           - name: DB_HOST
-            value: mattermost-db
+            value: mysql-0.mysql
+          - name: DB_PORT_NUMBER
+            value: "3306"
+          - name: MM_SQLSETTINGS_DRIVERNAME
+            value: mysql
+          - name: MM_SQLSETTINGS_DATASOURCE
+            value: $(MM_USERNAME):$(MM_PASSWORD)@tcp(mysql-0.mysql:3306)/mattermost?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s
+        ports:
+          - containerPort: 8065
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
