@@ -24,6 +24,8 @@ spec:
               mountPath: /mnt/conf.d
             - name: scripts
               mountPath: /mnt/scripts
+            - name: initdb
+              mountPath: /mnt/initdb
       containers:
       - name: mysql
         image: k8spracticalguide/mysql:5.7.22
@@ -37,6 +39,8 @@ spec:
             mountPath: /var/lib/mysql
           - name: confd
             mountPath: /etc/mysql/conf.d
+          - name: initdb
+            mountPath: /docker-entrypoint-initdb.d
           - name: backup
             mountPath: /mnt/backup
       volumes:
@@ -45,6 +49,8 @@ spec:
         - name: scripts
           configMap:
             name: mysql-scripts
+        - name: initdb
+          emptyDir: {}
         - name: backup
           persistentVolumeClaim:
             claimName: backup-mysql
