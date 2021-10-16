@@ -27,7 +27,7 @@ spec:
         app: mattermost
     spec:
       containers:
-      - image: sa2knight/mattermost:4.10.2
+      - image: sa2knight/mattermost:4.10.4
         imagePullPolicy: IfNotPresent
         name: mattermost
         resources: {}

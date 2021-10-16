@@ -41,3 +41,12 @@ $ kc apply -f mattermost-ingress.yaml
 ```bash
 $ minikube service mattermost
 ```
+
+## たまに使うコマンドメモ
+
+Docker イメージの更新してプッシュ
+
+```bash
+$ docker build -t sa2knight/mattermost:4.10.4 .
+$ docker push sa2knight/mattermost:4.10.4
+```
